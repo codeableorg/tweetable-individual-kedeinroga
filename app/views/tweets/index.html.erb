@@ -5,7 +5,7 @@
 <%= tweet.user.username %>
 <%= (Time.zone.now - tweet.created_at) %>
 <%= tweet.body %>
-<%= tweet.comments_count %>
+<%= link_to image_tag("icon_comment.svg",  alt: "comments"), tweet_path(tweet), method: :get %> <%= tweet.comments_count %>
 <%= link_to image_tag("icon_edit.svg",  alt:"edit"), edit_tweet_path(tweet), method: :get %>
 <%= link_to image_tag("icon_destroy.svg",  alt:"delete"), tweet_path(tweet), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
