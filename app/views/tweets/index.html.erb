@@ -1,2 +1,11 @@
-<h1>Tweets#index</h1>
-<p>Find me in app/views/tweets/index.html.erb</p>
+<h1>Home</h1>
+<% @tweets.each do |tweet| %>
+<%= tweet.user.avatar.attached? ? image_tag(user.avatar) : image_tag("user_default.svg") %>
+<%= tweet.user.name %>
+<%= tweet.user.username %>
+<%= (Time.zone.now - tweet.created_at) %>
+<%= tweet.body %>
+<%= tweet.comments_count %>
+<%= link_to image_tag("icon_edit.svg",  alt:"edit"), edit_tweet_path(tweet), method: :get %>
+<%= link_to image_tag("icon_destroy.svg",  alt:"delete"), tweet_path(tweet), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
