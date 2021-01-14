@@ -1,0 +1,11 @@
+
+    <% if current_user %>
+      <h2>
+        <%= link_to  current_user.name, edit_user_registration_path %>
+      </h2>
+      <div>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </div>
+    <% else %>
+      <div><%= link_to  "Sign In", user_session_path %></div>
+    <% end %>
