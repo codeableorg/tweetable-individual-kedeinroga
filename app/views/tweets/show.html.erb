@@ -1,5 +1,5 @@
 <h1>Tuit Detail</h1>
-<%= @tweet.user.avatar.attached? ? image_tag(user.avatar) : image_tag("user_default.svg") %>
+<%= @tweet.user.avatar.attached? ? image_tag(@tweet.user.avatar) : image_tag("user_default.svg") %>
 <%= @tweet.user.name %>
 <%= @tweet.user.username %>
 <%= (Time.zone.now - @tweet.created_at) %>
