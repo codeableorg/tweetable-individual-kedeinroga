@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   def index
+    @tweets = Tweet.new
     @tweets = Tweet.all
   end
 
@@ -21,9 +22,9 @@ class TweetsController < ApplicationController
     end
   end
 
-  def new
-    @tweet = Tweet.new
-  end
+  # def new
+  #   @tweet = Tweet.new
+  # end
 
   def create
     @tweet = Tweet.new(tweet_params)
