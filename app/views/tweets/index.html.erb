@@ -1,5 +1,4 @@
 <h1>Home</h1>
-<%= render "form", tweet: @tweet%>
 <% @tweets.each do |tweet| %>
 <%= tweet.user.avatar.attached? ? image_tag(user.avatar) : image_tag("user_default.svg") %>
 <%= tweet.user.name %>
