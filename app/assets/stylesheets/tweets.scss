@@ -1,0 +1,47 @@
+// Place all the styles related to the tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// Index
+.title {
+  color: var(--black);
+  font-size: 20px;
+}
+
+.card-tweet {
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  height: 120px;
+}
+
+.card-twee__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-twee__head {
+  display: flex;
+  flex-direction: row;
+  width: 510px;
+}
+
+.card-tweet__img img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #F7F9FA;
+  box-sizing: border-box;
+  border-radius: 100px;
+}
+
+.card-twee__body {
+  width: 510px;
+  height: 48px;
+}
+
+.card-twee__icons {
+  display: flex;
+  flex-direction: row;
+}
+
+// END Index

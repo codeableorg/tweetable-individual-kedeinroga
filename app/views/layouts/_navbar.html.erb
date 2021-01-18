@@ -1,0 +1,12 @@
+<div class = "navbar">
+    <% if current_user %>
+      <h2 class = "edit-profile">
+        <%= link_to  "Edit Profile", edit_user_registration_path %>
+      </h2>
+      <div class = "booton-session">
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </div>
+    <% else %>
+      <div class = "booton-session"><%= link_to  "Sign In", user_session_path %></div>
+    <% end %>
+</div>

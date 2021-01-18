@@ -1,0 +1,16 @@
+<h1>Tuit Detail</h1>
+<%= @tweet.user.avatar.attached? ? image_tag(@tweet.user.avatar) : image_tag("user_default.svg") %>
+<%= @tweet.user.name %>
+<%= @tweet.user.username %>
+<%= (Time.zone.now - @tweet.created_at) %>
+<%= @tweet.body %>
+<%= image_tag("icon_comment.svg",  alt: "comments") %> <%= @tweet.comments_count %>
+
+<% @tweet.comments.each do |comment| %>
+<%= comment.tweet.user.name %>
+<%= comment.tweet.user.username %>
+<%= (Time.zone.now - comment.created_at) %>
+<%= comment.body %>
+<%= link_to image_tag("icon_edit.svg",  alt:"edit"), edit_tweet_comment_path(@tweet, comment) %>
+<%= link_to image_tag("icon_destroy.svg",  alt:"delete"), tweet_comment_path(@tweet, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>

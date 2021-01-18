@@ -1,0 +1,22 @@
+<h1 class = "title">Home</h1>
+
+<%= render "form", tweet: @tweet%>
+
+<% @tweets.each do |tweet| %>
+<div class = "card-tweet">
+  <div class = "card-tweet__img"><%= tweet.user.avatar.attached? ? image_tag(tweet.user.avatar) : image_tag("user_default.svg") %></div>
+  <div class = "card-twee__content">
+    <div cass = "card-twee__head">
+      <div><%= tweet.user.name %></div>
+      <div><%= tweet.user.username %></div>
+      <div><%= (Time.zone.now - tweet.created_at) %></div>
+    </div>
+    <div class = "card-twee__body"><%= tweet.body %></div>
+    <div class = "card-twee__icons">
+      <%= link_to image_tag("icon_comment.svg",  alt: "comments"), tweet_path(tweet), method: :get %> <%= tweet.comments_count %>
+      <%= link_to image_tag("icon_edit.svg",  alt:"edit"), edit_tweet_path(tweet), method: :get %>
+      <%= link_to image_tag("icon_destroy.svg",  alt:"delete"), tweet_path(tweet), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  </div>
+</div>
+<% end %>
